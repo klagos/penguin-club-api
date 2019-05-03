@@ -21,7 +21,6 @@ public class Assistance {
     @JoinColumn(name="course_id")
     private Course course;
 
-
     public Assistance(Integer id, Date date, Boolean state, String period) {
         this.id = id;
         this.date = date;
