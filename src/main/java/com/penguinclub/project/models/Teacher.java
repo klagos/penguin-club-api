@@ -11,7 +11,10 @@ public class Teacher {
     private String name;
 
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
-    private List<Course> courses;
+    private List<Subject> subjects;
+
+    public Teacher(){
+    }
 
     public Teacher(Integer id, String name) {
         this.id = id;

@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Course {
+public class Subject {
     @Id
     @GeneratedValue
     private Integer id;
@@ -12,18 +12,21 @@ public class Course {
     private String name;
 
 
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany(mappedBy = "subjects")
     private List<Student> students;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "subject")
     private List<Grade> grades;
 
-    @OneToMany(mappedBy = "course")
+    @OneToMany(mappedBy = "subject")
     private List<Assistance> assistances;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "teacher_id", nullable = false)
     private Teacher teacher;
+
+    public Subject(){
+    }
 
     public Teacher getTeacher() {
         return teacher;
@@ -57,7 +60,8 @@ public class Course {
         this.grades = grades;
     }
 
-    public Course(Integer id, String initials, String name) {
+
+    public Subject(Integer id, String initials, String name) {
         this.id = id;
         this.initials = initials;
         this.name = name;

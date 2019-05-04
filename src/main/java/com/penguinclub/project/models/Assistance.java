@@ -18,8 +18,11 @@ public class Assistance {
     private Student student;
 
     @ManyToOne
-    @JoinColumn(name="course_id")
-    private Course course;
+    @JoinColumn(name="subject_id")
+    private Subject subject;
+
+    public Assistance(){
+    }
 
     public Assistance(Integer id, Date date, Boolean state, String period) {
         this.id = id;
@@ -36,12 +39,12 @@ public class Assistance {
         this.student = student;
     }
 
-    public Course getCourse() {
-        return course;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     public Integer getId() {

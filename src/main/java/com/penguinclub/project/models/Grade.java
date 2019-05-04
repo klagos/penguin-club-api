@@ -14,29 +14,32 @@ public class Grade {
     private Float weighing;
 
     @ManyToOne
-    @JoinColumn(name="course_id")
-    private Course course;
+    @JoinColumn(name="subject_id")
+    private Subject subject;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
-    public Grade(Integer id, String title, Date date, Integer grade, Float weighing, Course course, Student student) {
+    public Grade(){
+    }
+
+    public Grade(Integer id, String title, Date date, Integer grade, Float weighing, Subject subject, Student student) {
         this.id = id;
         this.title = title;
         this.date = date;
         this.grade = grade;
         this.weighing = weighing;
-        this.course = course;
+        this.subject = subject;
         this.student = student;
     }
 
-    public Course getCourse() {
-        return course;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 
     public Student getStudent() {
