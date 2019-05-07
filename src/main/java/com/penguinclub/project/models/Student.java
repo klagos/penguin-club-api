@@ -12,11 +12,11 @@ public class Student {
     private String rol;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "course_student",
-            joinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"),
+    @JoinTable(name = "subject_student",
+            joinColumns = @JoinColumn(name = "subject_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "student_id",
                     referencedColumnName = "id"))
-    private List<Course> courses;
+    private List<Subject> subjects;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "student")
     private List<Grade> grades;
@@ -73,12 +73,12 @@ public class Student {
         this.rol = rol;
     }
 
-    public List<Course> getCourses() {
-        return courses;
+    public List<Subject> getSubjects() {
+        return subjects;
     }
 
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
+    public void setSubjects(List<Subject> subjects) {
+        this.subjects = subjects;
     }
 
     @Override
